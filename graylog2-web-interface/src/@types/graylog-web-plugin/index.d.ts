@@ -338,7 +338,6 @@ declare module 'graylog-web-plugin/plugin' {
 
   interface PageNavigation {
     description: string;
-    perspective?: string;
     children: Array<{
       description: string;
       position?: PluginNavigation['position'];
@@ -372,7 +371,6 @@ declare module 'graylog-web-plugin/plugin' {
   type PluginNavigation = {
     description: string;
     requiredFeatureFlag?: string;
-    perspective?: string;
     BadgeComponent?: React.ComponentType<{ text: string }>;
     position?: { last: true } | { after: string } | undefined;
     permissions?: Permission | Array<Permission>;
@@ -398,11 +396,10 @@ declare module 'graylog-web-plugin/plugin' {
     inputSetupWizard?: Array<InputSetupWizard>;
     // Global context providers allow to fetch and process data once
     // and provide the result for all components in your plugin.
-    globalContextProviders?: Array<React.ComponentType<React.PropsWithChildrean<{}>>>;
+    globalContextProviders?: Array<React.ComponentType<React.PropsWithChildren<{}>>>;
     // Difference between page context providers and global context providers
-    // is that page context providers are rendered within the <App> giving it
-    // access to certain contexts like PerspectivesContext
-    pageContextProviders?: Array<React.ComponentType<React.PropsWithChildrean<{}>>>;
+    // is that page context providers are rendered within the <App>.
+    pageContextProviders?: Array<React.ComponentType<React.PropsWithChildren<{}>>>;
     routes?: Array<PluginRoute>;
     pages?: PluginPages;
     pageFooter?: Array<PluginPageFooter>;
